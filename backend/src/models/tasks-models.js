@@ -5,22 +5,25 @@ const path = require('path');
 const tasksPath = path.join(__dirname, '../database/tasks.json');
 
 //Funcion para leer las tareas del archivo JSON
-const getTasks = () => {
+function getTasks () {
     return JSON.parse(fs.readFileSync(tasksPath, 'utf8'))
 };
 
-const getTaskById = (id) => {
+function getTasksByUser(userId){
+    const tasks = getTasks()
+    return tasks.filter(t => t.userId === userId)
+}
+
+function getTaskById (userId, id) {
     const tasks = getTasks();
-    return tasks.find(task => task.id === id);
+    return tasks.find(task => task.id === id &&task.userId === userId);
 };
 
-const saveTask = (tasks) => {
-    // const tasks = getTasks();
-    // tasks.push(task);
+function saveTask (tasks) {
     fs.writeFileSync(tasksPath, JSON.stringify(tasks, null, 2), 'utf8') 
 }
 
-const addTask = (task) => {
+function addTask (task) {
     const tasks = getTasks();
     const newId = tasks.length + 1;
     const newTask = { id: newId,  ...task};
@@ -29,15 +32,15 @@ const addTask = (task) => {
     return newTask;
 }
 
-const deleteTask = (id) => {
+function deleteTask (userId, id) {
     let tasks = getTasks();
-    tasks = tasks.filter( task => task.id === id)
+    tasks = tasks.filter( task => !(task.id === id && task.userId === userId))
     saveTask(tasks)
 }
 
-const updateTask = (id, newTask) => {
+function updateTask (userId, id, newTask) {
     let tasks = getTasks();
-    const index = tasks.filterIndex(task => task.id === id)
+    const index = tasks.findIndex(task => task.id === id && task.userId === userId)
     if( index !== -1) {
         tasks[index] = { ...tasks[index], ...newTask };
         saveTask(tasks)
@@ -47,4 +50,4 @@ const updateTask = (id, newTask) => {
 };
 
 
-module.exports = { getTasks, getTaskById, saveTask, addTask, deleteTask, updateTask }
+module.exports = { getTasks, getTaskById, getTasksByUser, saveTask, addTask, deleteTask, updateTask }

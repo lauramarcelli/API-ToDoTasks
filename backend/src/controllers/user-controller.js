@@ -9,7 +9,7 @@ exports.registerUser = async (req, res) => {
         return res.status(400).json({ error: 'Los campos no pueden estar vacíos' });
     }
 
-    if(User.getUserByMail(email)) {
+    if(User.getUserByEmail(email)) {
         return res.status(409).json({ error: 'El usuario ya existe'});
     }
 
@@ -22,7 +22,7 @@ exports.registerUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
     const { email, password } = req.body
     
-    const user = User.getUserByMail(email); 
+    const user = User.getUserByEmail(email); 
     if (!user || !bcrypt.compare (password, user.password)) {
         return res.status(401).json({ error: 'El usuario no existe o la contraseña es incorrecta' });
     }
