@@ -3,10 +3,10 @@ const cors = require ('cors');
 const dotenv = require('dotenv')
 const bodyParser = require ('body-parser');
 const path = require ('path');
-const tasksRoutes = require ('.routes/tasks-routes');
-const userRoutes = require ('.routes/users-routes');
-const errorMiddleware = require ('./middlewares/error-middleware');
-const authMiddleware = require ('./middlewares/auth-middleware');
+const tasksRoutes = require ('./src/routes/tasks-routes');
+const userRoutes = require ('./src/routes/users-routes');
+const errorMiddleware = require ('./src/middlewares/error-middleware');
+const authMiddleware = require ('./src/middlewares/auth-middleware');
 
 dotenv.config()
 const app = express();
