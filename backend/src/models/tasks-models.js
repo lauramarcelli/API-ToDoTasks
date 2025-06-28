@@ -34,8 +34,11 @@ function addTask (task) {
 
 function deleteTask (userId, id) {
     let tasks = getTasks();
+    const initialLength = tasks.length
     tasks = tasks.filter( task => !(task.id === id && task.userId === userId))
+    if( tasks.length === initialLength) return false
     saveTasks(tasks)
+    return true
 }
 
 function updateTask (userId, id, newTask) {
