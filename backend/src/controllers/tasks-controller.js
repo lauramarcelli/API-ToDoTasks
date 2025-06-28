@@ -22,13 +22,17 @@ exports.create = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    const updated = Task.updateTask(req.UserId, parseInt(req.params.id), req.body)
+    const updated = Task.updateTask(req.userId, parseInt(req.params.id), req.body)
     if(!updated) return res.status(404).json({ error: 'Tarea no encontrada'});
     res.json(updated);
 }
 
 exports.delete = (req, res) => {
-    const deleted = Task.deleteTask(req.UserId, parseInt(req.params.id));
-    if(!deleted) return res.status(404).json({ error: 'No se encontró la tarea' });
-    res.status(204).send()
+    const deleted = Task.deleteTask(req.userId, parseInt(req.params.id));
+    
+    if(deleted) {
+        res.json({ message: 'Eliminada' })
+    } else {
+        return res.status(404).json({ error: 'No se encontró la tarea' });
+    }
 }

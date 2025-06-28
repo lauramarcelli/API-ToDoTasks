@@ -19,7 +19,7 @@ function getTaskById (userId, id) {
     return tasks.find(task => task.id === id &&task.userId === userId);
 };
 
-function saveTask (tasks) {
+function saveTasks (tasks) {
     fs.writeFileSync(tasksPath, JSON.stringify(tasks, null, 2), 'utf8') 
 }
 
@@ -28,14 +28,14 @@ function addTask (task) {
     const newId = tasks.length + 1;
     const newTask = { id: newId,  ...task};
     tasks.push(newTask);
-    saveTask(tasks);
+    saveTasks(tasks);
     return newTask;
 }
 
 function deleteTask (userId, id) {
     let tasks = getTasks();
     tasks = tasks.filter( task => !(task.id === id && task.userId === userId))
-    saveTask(tasks)
+    saveTasks(tasks)
 }
 
 function updateTask (userId, id, newTask) {
@@ -43,11 +43,11 @@ function updateTask (userId, id, newTask) {
     const index = tasks.findIndex(task => task.id === id && task.userId === userId)
     if( index !== -1) {
         tasks[index] = { ...tasks[index], ...newTask };
-        saveTask(tasks)
+        saveTasks(tasks)
         return tasks[index]
     }
     return null
 };
 
 
-module.exports = { getTasks, getTaskById, getTasksByUser, saveTask, addTask, deleteTask, updateTask }
+module.exports = { getTasks, getTaskById, getTasksByUser, saveTasks, addTask, deleteTask, updateTask }
