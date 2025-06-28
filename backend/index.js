@@ -1,17 +1,19 @@
 const express = require ('express');
 const cors = require ('cors');
 const dotenv = require('dotenv')
-const fs = require('fs');
 const bodyParser = require ('body-parser');
 const path = require ('path');
-const tasksRoutes = require ('.routes/task-routes');
-const userRoutes = require ('.routes/user-routes');
-import { errorMiddleware } from './middlewares/error-middleware.js';
+const tasksRoutes = require ('.routes/tasks-routes');
+const userRoutes = require ('.routes/users-routes');
+const errorMiddleware = require ('./middlewares/error-middleware');
+const authMiddleware = require ('./middlewares/auth-middleware');
 
+dotenv.config()
 const app = express();
+
 const PORT = 3000
 require('dotenv').config()
-const SECRET_KEY = process.env.SECRET_KEY 
+
 
 //Middleware
 app.use(cors());
@@ -22,13 +24,14 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 
 //Rutas API
 app.use('/api/tasks', tasksRoutes);
-app.use('/api/user', userRoutes);
+app.use('/api/user', authMiddleware, userRoutes);
+app.use(errorMiddleware);
 
 app.use((req, res) => {
     res.status(404).json({ message: 'Ruta no encontrada' });
 })
 
-app.use(errorMiddleware);
+
 
 //Ruta para manejar cualquier otra solicitud
 app.get('/', (req, res) => {

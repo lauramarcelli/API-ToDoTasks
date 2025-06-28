@@ -1,7 +1,5 @@
-const express = require ('express');
-
-exports.errorMiddleware = (err, req, res, next) => {
-    console.error('Error', err.message);
+module.exports = (err, req, res, next) => {
+    console.error(err);
     res.status(500).json({
-        error: 'Algo ocurrió en el servidor',
+        error: 'Error interno del servidor',
     })}
