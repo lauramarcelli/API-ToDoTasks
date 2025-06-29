@@ -23,11 +23,11 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body
     
     const user = User.getUserByEmail(email); 
-    if (!user || !bcrypt.compare (password, user.password)) {
+    if (!user || !bcrypt.compare(password, user.password)) {
         return res.status(401).json({ error: 'El usuario no existe o la contraseña es incorrecta' });
     }
 
-    const token = jwt.sign({ id: user.id, email: user.email}, process.env.SECRET_KEY, { expiresIn: '1h'})
+    const token = jwt.sign({ id: user.id, email: user.email}, process.env.JWT_SECRET, { expiresIn: '1h'})
 
     res.json({ message: 'Usuario logueado exitosamente', token})
 }

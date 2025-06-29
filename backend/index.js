@@ -10,6 +10,7 @@ const authMiddleware = require ('./src/middlewares/auth-middleware');
 
 dotenv.config()
 const app = express();
+app.use(express.json());
 
 const PORT = 3000
 require('dotenv').config()
@@ -23,8 +24,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 //Rutas API
-app.use('/api/tasks', tasksRoutes);
-app.use('/api/user', authMiddleware, userRoutes);
+app.use('/api/tasks', tasksRoutes, authMiddleware);
+app.use('/api/user', userRoutes);
 app.use(errorMiddleware);
 
 app.use((req, res) => {
