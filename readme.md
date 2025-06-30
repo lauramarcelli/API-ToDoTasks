@@ -58,9 +58,10 @@ Es una aplicación web moderna para gestionar tareas con un diseño tipo Trello,
    ```env
    # Configuración del servidor
    PORT=3000
-
    # Configuración de CORS
    CORS_ORIGIN=http://localhost:5173
+   # Configuración del JWT
+   JWT_SECRET=mi_secreto_jwt_super_seguro_para_todo_tasks_2024
    ```
 
 ## 🚀 Ejecución
