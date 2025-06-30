@@ -9,4 +9,7 @@ router.post('/', controller.create)
 router.put('/:id', controller.update);
 router.delete('/:id', controller.delete);
 
+// Ruta específica para actualizar status (drag and drop)
+router.patch('/:id/status', controller.updateStatus);
+
 module.exports = router;

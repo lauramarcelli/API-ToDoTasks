@@ -3,5 +3,12 @@
     "id": 1751216674033,
     "email": "lala2025@gmail.com",
     "password": "$2b$10$UqP1VV14zGoryFQXWn4iHu5OYX9LJhis/gC5Qjm6Fzfa9MzL3jje."
+  },
+  {
+    "id": 1751243494123,
+    "name": "Pamela Fumagalli",
+    "email": "pamela2025@gmail.com",
+    "password": "$2b$10$8vvlFeOaUBvzrfdhw.uneeOZhFGP0F.ZcVlAWlpdtwPQUV94jRIh.",
+    "createdAt": "2025-06-30T00:31:34.123Z"
   }
 ]
