@@ -8,6 +8,7 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
     priority: 'medium'
   })
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (task) {
@@ -28,8 +29,11 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!formData.title.trim()) return
-
+    if (!formData.title.trim()) {
+      setError('El título es requerido')
+      return
+    }
+    setError('')
     setLoading(true)
     try {
       await onSubmit(formData)
@@ -68,11 +72,17 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
               id="title"
               name="title"
               value={formData.title}
-              onChange={handleInputChange}
-              className="input"
+              onChange={e => {
+                handleInputChange(e)
+                if (error && e.target.value.trim()) setError('')
+              }}
+              className={`input${error ? ' input-error' : ''}`}
               placeholder="Título de la tarea"
               required
             />
+            {error && (
+              <div className="input-error-message" style={{ color: '#dc2626', fontWeight: 'bold', fontSize: '0.85em', marginTop: '0.2em' }}>{error}</div>
+            )}
           </div>
 
           <div className="form-group">
@@ -115,7 +125,7 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
             <button 
               type="submit" 
               className="btn btn-primary"
-              disabled={loading || !formData.title.trim()}
+              disabled={loading}
             >
               {loading ? 'Guardando...' : (task ? 'Actualizar' : 'Crear')}
             </button>
