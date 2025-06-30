@@ -20,26 +20,5 @@ Thumbs.db
 # VS Code
 .vscode/
 
-# Cobertura de tests
-coverage/
 
-# Archivos temporales y de lock
-*.log
-*.tgz
-*.bak
-*.tmp
 
-# TypeScript
-*.tsbuildinfo
-
-# PM2 (si usás este gestor de procesos)
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# Logs específicos (si tu app los genera)
-logs/
-*.log
-.vscode/extensions/
-.codeium/

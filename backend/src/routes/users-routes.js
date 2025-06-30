@@ -3,8 +3,8 @@ const router = express.Router()
 const validatePassword = require('../middlewares/validate-middleware')
 const userController = require('../controllers/users-controller');
 
-router.post('/register', validatePassword.auth, userController.registerUser);
-router.post('/login', validatePassword.auth, userController.loginUser)
-
+// Rutas de autenticación
+router.post('/register', userController.registerUser);
+router.post('/login', userController.loginUser);
 
 module.exports = router
