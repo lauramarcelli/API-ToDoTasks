@@ -10,5 +10,12 @@
     "email": "pamela2025@gmail.com",
     "password": "$2b$10$8vvlFeOaUBvzrfdhw.uneeOZhFGP0F.ZcVlAWlpdtwPQUV94jRIh.",
     "createdAt": "2025-06-30T00:31:34.123Z"
+  },
+  {
+    "id": 1751243494124,
+    "name": "Laura Sabrina",
+    "email": "laura.marcelli@gmail.com",
+    "password": "$2b$10$Adzs/M0gV8ZsrynTIAzKnOdQn61chBAk6X.bVQ.5x52P/FZwUPKtq",
+    "createdAt": "2025-06-30T16:51:37.555Z"
   }
 ]

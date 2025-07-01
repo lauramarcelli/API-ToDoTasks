@@ -69,5 +69,27 @@
     "userId": 1751243494123,
     "createdAt": "2025-06-30T01:35:23.048Z",
     "updatedAt": "2025-06-30T01:35:25.522Z"
+  },
+  {
+    "id": 8,
+    "title": "pasear al perro",
+    "description": "",
+    "priority": "medium",
+    "status": "done",
+    "completed": true,
+    "userId": 1751243494124,
+    "createdAt": "2025-06-30T16:52:21.168Z",
+    "updatedAt": "2025-06-30T20:09:02.177Z"
+  },
+  {
+    "id": 9,
+    "title": "sacar la basura",
+    "description": "",
+    "priority": "low",
+    "status": "inProgress",
+    "completed": false,
+    "userId": 1751243494124,
+    "createdAt": "2025-06-30T16:52:53.002Z",
+    "updatedAt": "2025-06-30T22:08:13.913Z"
   }
 ]
