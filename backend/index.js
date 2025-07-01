@@ -43,6 +43,11 @@ app.use((req, res, next) => {
 //Servir archivos estáticos del frontend
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
+//ruta para manejar cualquier solicitud
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+})
+
 //Rutas API
 app.use('/api/user', userRoutes);
 app.use('/api/tasks', authMiddleware, tasksRoutes);
