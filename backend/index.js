@@ -18,7 +18,7 @@ require('dotenv').config()
 // Configuración de CORS
 const corsOptions = {
   origin: function (origin, callback) {
-    const allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+    const allowedOrigins = ['http://localhost:5173', 'https://todotask-9b3e.onrender.com'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 })
 
 //Servir archivos estáticos del frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 //Rutas API
 app.use('/api/user', userRoutes);
