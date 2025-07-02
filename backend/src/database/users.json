@@ -19,5 +19,12 @@
     "email": "pepa@gmail.com",
     "password": "$2b$10$OQmpRxKhB03iUew/VRCUpe7bPPtyVvemqdeSZgftHOhm0dAKd5bF6",
     "createdAt": "2025-07-02T14:22:53.697Z"
+  },
+  {
+    "id": 1751243494126,
+    "name": "vajkasdjkjksj",
+    "email": "vajkasdjkjksj@pepa.com",
+    "password": "$2b$10$fEKgvxT/uAv0u22XyxIQb.Tu/eHKJNgHzTmXnLBdb6qPinxc8N1Sq",
+    "createdAt": "2025-07-02T15:21:44.543Z"
   }
 ]
