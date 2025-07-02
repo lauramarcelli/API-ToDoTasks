@@ -12,5 +12,12 @@
     "email": "laura.marcelli@gmail.com",
     "password": "$2b$10$Adzs/M0gV8ZsrynTIAzKnOdQn61chBAk6X.bVQ.5x52P/FZwUPKtq",
     "createdAt": "2025-06-30T16:51:37.555Z"
+  },
+  {
+    "id": 1751243494125,
+    "name": "pepapig",
+    "email": "pepa@gmail.com",
+    "password": "$2b$10$OQmpRxKhB03iUew/VRCUpe7bPPtyVvemqdeSZgftHOhm0dAKd5bF6",
+    "createdAt": "2025-07-02T14:22:53.697Z"
   }
 ]

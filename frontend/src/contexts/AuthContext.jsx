@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
 // Configurar la base URL de axios
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = '' || 'http://localhost:3000' 
 
 const AuthContext = createContext()
 

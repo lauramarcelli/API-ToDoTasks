@@ -98,10 +98,12 @@ exports.loginUser = async (req, res) => {
                 message: 'Contraseña incorrecta' 
             });
         }
-
+        
         // Generar token
         const token = jwt.sign(
+            
             { id: user.id, email: user.email }, 
+            
             process.env.JWT_SECRET, 
             { expiresIn: '24h' }
         );

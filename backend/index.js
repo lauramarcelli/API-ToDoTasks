@@ -1,6 +1,7 @@
 const express = require ('express');
 const cors = require ('cors');
 const dotenv = require('dotenv')
+dotenv.config()
 const bodyParser = require ('body-parser');
 const path = require ('path');
 const tasksRoutes = require ('./src/routes/tasks-routes');
@@ -8,12 +9,12 @@ const userRoutes = require ('./src/routes/users-routes');
 const errorMiddleware = require ('./src/middlewares/error-middleware');
 const authMiddleware = require ('./src/middlewares/auth-middleware');
 
-dotenv.config()
+
 const app = express();
 app.use(express.json());
 
 const PORT = 3000
-require('dotenv').config()
+
 
 // Configuración de CORS
 const corsOptions = {

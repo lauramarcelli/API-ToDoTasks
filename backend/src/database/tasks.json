@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "pasear al gato",
+    "description": "",
+    "priority": "low",
+    "status": "done",
+    "completed": true,
+    "userId": 1751243494124,
+    "createdAt": "2025-07-02T15:05:05.051Z",
+    "updatedAt": "2025-07-02T15:05:07.862Z"
+  }
+]
